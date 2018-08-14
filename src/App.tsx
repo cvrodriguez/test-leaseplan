@@ -2,11 +2,14 @@
 import * as React from 'react';
 import './App.css';
 
-import {   } from 'antd';
+
 import 'antd/dist/antd.css';
 
 
+import Repositories from './components/repositories/Repositories';
 import logo from './logo.svg';
+
+
 
 
 
@@ -28,7 +31,11 @@ class App extends React.Component {
         <a> Go to email</a>
         <br/>
         <a> Go to repository</a>
+        
+         <Repositories/>
+        
       </div>
+      
     );
   }
 }
