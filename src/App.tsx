@@ -5,11 +5,9 @@ import './App.css';
 
 import 'antd/dist/antd.css';
 
-
+import EmailUser from './components/emails/EmailUser';
 import Repositories from './components/repositories/Repositories';
 import logo from './logo.svg';
-
-
 
 
 
@@ -17,7 +15,7 @@ class App extends React.Component {
 
   public render() {
     return (
-      <div className="App">
+      <div className="App" >
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome Viviana's World</h1>
@@ -31,8 +29,11 @@ class App extends React.Component {
         <a> Go to email</a>
         <br/>
         <a> Go to repository</a>
+        <hr/>
         
          <Repositories/>
+         <hr/>
+        <EmailUser/>
         
       </div>
       
