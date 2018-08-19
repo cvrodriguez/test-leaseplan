@@ -1,7 +1,7 @@
 import {createAction} from 'redux-actions';
 import * as actionstypes from '../constants/actionstype';
 
-interface ISearchRepositoriesPayload{
+export interface ISearchRepositoriesPayload{
     userName: string;
 }
 

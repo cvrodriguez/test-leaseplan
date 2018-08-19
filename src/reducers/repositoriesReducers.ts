@@ -5,13 +5,11 @@ import {initialState} from './initialState';
 const repositories = (state=initialState.repositories, action:any) => {
 
     switch (action.type) {
-        case actionstypes.REPOSITORY_FETCH:
+        case actionstypes.REPOSITORY_SUCCESS:
             
             // return action.payload;
 
-            return [
-                'tergtrbrh', 'fdgfgf'
-            ]
+            return action.payload.map( (rep: any) => rep.full_name)
     
         default: return state;
             
