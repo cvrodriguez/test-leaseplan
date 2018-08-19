@@ -1,17 +1,18 @@
 import * as React from 'react';
 
+interface IProps {
+    repos:string[];
+}
 
 
+class RepositoriesList extends React.Component<IProps, any> {
 
-class RepositoriesList extends React.Component<any, any> {
-    private repositories: string[];
 
-    constructor(props: any) {
+    constructor(props: IProps) {
         super(props);
-        this.repositories = props.value;
     }
     public render() {
-        const items = this.repositories.map((rep, idx) => {
+        const items = this.props.repos.map((rep, idx) => {
             return <li key={idx}>{rep}</li>
         });
         return (

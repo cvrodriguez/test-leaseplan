@@ -1,20 +1,20 @@
 import * as React from 'react';
+
 import RepositoriesList from './RepositoriesList';
 import RepositoriesSearch from './RepositoriesSearch';
 
+import { connect } from 'react-redux';
+import { IState } from '../../reducers/initialState';
 
-class Repositories extends React.Component {
+import { bindActionCreators } from 'redux';
+import * as RepositoriesActions from '../../actions/repositoriesActions';
 
-    private repositories: string[];
+
+
+class Repositories extends React.Component<any, any>{
 
     constructor(props: any) {
         super(props);
-        this.repositories = [];
-        this.repositories.push("hola");
-        this.repositories.push("mi mundo");
-        this.repositories.push("es");
-        this.repositories.push("de");
-        this.repositories.push("ella.. mi mundo");
     }
 
     public render() {
@@ -24,11 +24,29 @@ class Repositories extends React.Component {
             <div>
                 <h1> User's Repositories</h1>
                 <RepositoriesSearch />
-                <RepositoriesList value={this.repositories}/>
-
+                <RepositoriesList repos={this.props.repos} />
             </div>
         );
     }
 
+    public componentDidMount() {
+        this.props.actions.searchRepos({
+            userName: 'cvrodriguez'
+        })
+    }
 }
-export default Repositories;
+
+
+function mapStateToProps(state: IState) {
+    return {
+        repos: state.repositories
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        actions: bindActionCreators(RepositoriesActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repositories);
